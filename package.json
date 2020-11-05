@@ -1,14 +1,22 @@
 {
-  "name": "red-contrib-aws-ses",
+  "name": "node-red-contrib-aws-ses",
   "version": "1.0.0",
   "description": "Enable the send of e-mails with AWS contrib",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "https://www.linkedin.com/in/danielterra/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielterra/node-red-contrib-aws-ses"
+  },
+  "author": "Daniel Terra <daniel_terra@icloud.com> (https://www.linkedin.com/in/danielterra/)",
   "license": "ISC",
   "keywords": [ "node-red", "AWS", "SES", "Simple Email Service"],
+  "bugs": {
+    "url": "https://github.com/danielterra/node-red-contrib-aws-ses/issues"
+  },
+  "homepage": "https://github.com/danielterra/node-red-contrib-aws-ses",
   "node-red": {
     "nodes": {
       "aws-ses": "aws-ses.js"
