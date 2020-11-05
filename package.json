@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielterra/node-red-contrib-aws-ses"
+    "url": "https://github.com/danielterra/node-red-contrib-aws-ses-send"
   },
   "author": "Daniel Terra <daniel_terra@icloud.com> (https://www.linkedin.com/in/danielterra/)",
   "license": "ISC",
   "keywords": [ "node-red", "AWS", "SES", "Simple Email Service"],
   "bugs": {
-    "url": "https://github.com/danielterra/node-red-contrib-aws-ses/issues"
+    "url": "https://github.com/danielterra/node-red-contrib-aws-ses-send/issues"
   },
-  "homepage": "https://github.com/danielterra/node-red-contrib-aws-ses",
+  "homepage": "https://github.com/danielterra/node-red-contrib-aws-ses-send",
   "node-red": {
     "nodes": {
       "aws-ses": "aws-ses.js"
