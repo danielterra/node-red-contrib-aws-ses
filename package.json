@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-aws-ses",
+  "name": "node-red-contrib-aws-ses-send",
   "version": "1.0.0",
   "description": "Enable the send of e-mails with AWS contrib",
   "main": "index.js",
