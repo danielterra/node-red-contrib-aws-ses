@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-aws-ses-send",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "Enable the send of e-mails with AWS contrib",
   "main": "aws-ses.js",
   "scripts": {
@@ -28,6 +28,6 @@
     }
   },
   "dependencies": {
-    "aws-sdk": "^2.785.0"
+    "aws-sdk": "2.786.0"
   }
 }
