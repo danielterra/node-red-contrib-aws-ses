@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielterra/node-red-contrib-aws-ses-send"
+    "url": "git+https://github.com/danielterra/node-red-contrib-aws-ses-send.git"
   },
   "author": "Daniel Terra <daniel_terra@icloud.com> (https://www.linkedin.com/in/danielterra/)",
   "license": "ISC",
@@ -29,5 +29,6 @@
   },
   "dependencies": {
     "aws-sdk": "2.786.0"
-  }
+  },
+  "devDependencies": {}
 }
