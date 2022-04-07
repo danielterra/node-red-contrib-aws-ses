@@ -103,15 +103,15 @@ module.exports = function(RED) {
             if (msg.payload.cc_recipient) {
                 let toCcAddresses = msg.payload.cc_recipient;
                 if (!Array.isArray(toCcAddresses))
-                toCcAddresses = [msg.payload.recipient];
-                params.Message.Destination.CcAddresses = toCcAddresses;
+                    toCcAddresses = [msg.payload.recipient];
+                params.Destination.CcAddresses = toCcAddresses;
             }
 
             if (msg.payload.bcc_recipient) {
                 let toBccAddresses = msg.payload.bcc_recipient;
                 if (!Array.isArray(toBccAddresses))
-                toBccAddresses = [msg.payload.bcc_recipient];
-                params.Message.Destination.BccAddresses = toBccAddresses;
+                    toBccAddresses = [msg.payload.bcc_recipient];
+                params.Destination.BccAddresses = toBccAddresses;
             }
 
             if (msg.payload.body_text) {
