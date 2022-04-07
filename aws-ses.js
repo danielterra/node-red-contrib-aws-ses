@@ -103,7 +103,7 @@ module.exports = function(RED) {
             if (msg.payload.cc_recipient) {
                 let toCcAddresses = msg.payload.cc_recipient;
                 if (!Array.isArray(toCcAddresses))
-                    toCcAddresses = [msg.payload.recipient];
+                    toCcAddresses = [msg.payload.cc_recipient];
                 params.Destination.CcAddresses = toCcAddresses;
             }
 
