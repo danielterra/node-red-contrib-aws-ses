@@ -21,7 +21,7 @@ module.exports = function(RED) {
     function AwsSESNode(config) {
         function sendError(err, node, done) {
             node.warn(err.message);
-    
+
             if (err) {
                 if (done) {
                     // Node-RED 1.0 compatible
@@ -42,13 +42,13 @@ module.exports = function(RED) {
             const region = this.credentials.region;
             const sender = config.sender;
 
-            
+
             AWS.config.update({
                 accessKeyId: aws_access_key_id,
                 secretAccessKey: aws_secret_access_key,
                 region: region
             });
-            
+
             if (!AWS) {
                 sendError(new Error("You must configure the node key and secret before using..."),node,done);
                 node.warn("Missing AWS credentials");
@@ -81,15 +81,15 @@ module.exports = function(RED) {
             }
 
             this.status({fill:"blue",shape:"dot",text:"sending..."});
-            
+
             // ITS ALL GOOD MAN, SEND EMAIL!
-            
+            let toAddresses = msg.payload.recipient;
+            if (!Array.isArray(toAddresses))
+                toAddresses = [msg.payload.recipient];
             const params = {
-                Source: sender, 
-                Destination: { 
-                    ToAddresses: [
-                        msg.payload.recipient
-                    ],
+                Source: sender,
+                Destination: {
+                    ToAddresses: toAddresses
                 },
                 Message: {
                     Subject: {
@@ -99,23 +99,37 @@ module.exports = function(RED) {
                     Body: {}
                 }
             };
-            
+
+            if (msg.payload.cc_recipient) {
+                let toCcAddresses = msg.payload.cc_recipient;
+                if (!Array.isArray(toCcAddresses))
+                toCcAddresses = [msg.payload.recipient];
+                params.Message.Destination.CcAddresses = toCcAddresses;
+            }
+
+            if (msg.payload.bcc_recipient) {
+                let toBccAddresses = msg.payload.bcc_recipient;
+                if (!Array.isArray(toBccAddresses))
+                toBccAddresses = [msg.payload.bcc_recipient];
+                params.Message.Destination.BccAddresses = toBccAddresses;
+            }
+
             if (msg.payload.body_text) {
                 params.Message.Body.Text = {
                     Charset: charset,
                     Data: msg.payload.body_text
                 };
             }
-            
+
             if (msg.payload.body_html) {
                 params.Message.Body.Html = {
                     Charset: charset,
                     Data: msg.payload.body_html
                 };
             }
-            
+
             send = send || function() { node.send.apply(node,arguments) }
-            
+
             var ses = new AWS.SES();
             ses.sendEmail(params, (function(err, data) {
                 if(err) {
@@ -129,7 +143,7 @@ module.exports = function(RED) {
                     }
                 }
             }).bind(this));
-            
+
         });
     }
     RED.nodes.registerType("aws-ses",AwsSESNode, {
