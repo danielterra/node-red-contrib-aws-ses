@@ -10,7 +10,9 @@ Double click the node and fill all fields
 ## Payload
 It expects a payload with these properties;
 
-- payload.recipient: Email address to sendo to, should be valid and accept just one address at time.
+- payload.recipient: Email address(es) to sendo to, should be valid. Accept either one address as a string or multiple addresses as an array of strings.
+- payload.cc_recipient: Optional email address(es) to sendo to as carbon-copy (Cc), should be valid. Accept either one address as a string or multiple addresses as an array of strings.
+- payload.bcc_recipient: Optional email address(es) to sendo to as blind-carbon-copy (Bcc), should be valid. Accept either one address as a string or multiple addresses as an array of strings.
 - payload.subject: The email subject, should be short string.
 - payload.body_text: If you want to send a pure text email you should use this property.
 - payload.body_html: The html string to send.
@@ -26,4 +28,3 @@ It returns an Object with the Id of the email sended
     "MessageId":"0101017599fe549f-64676c3d-8dda-478b-9765-228d49de341c-000000"
 }
 ```
-    
