@@ -51,7 +51,11 @@
     <p>It expects a payload with these properties;</p>
     <dl>
         <dt>payload.recipient</dt>
-        <dd>Email address to sendo to, should be valid and accept just one address at time.</dd>
+        <dd>Email address(es) to sendo to, should be valid. Accept either one address as a string or multiple addresses as an array of strings.</dd>
+        <dt>payload.cc_recipient</dt>
+        <dd>Optional email address(es) to sendo to as carbon-copy (Cc), should be valid. Accept either one address as a string or multiple addresses as an array of strings.</dd>
+        <dt>payload.bcc_recipient</dt>
+        <dd>Optional email address(es) to sendo to as blind-carbon-copy (Bcc), should be valid. Accept either one address as a string or multiple addresses as an array of strings.</dd>
         <dt>payload.subject</dt>
         <dd>The email subject, should be short string.</dd>
         <dt>payload.body_text</dt>
